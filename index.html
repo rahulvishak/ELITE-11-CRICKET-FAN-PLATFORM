@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ELITE 11 — Premium Cricket</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700;900&family=Barlow+Condensed:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<!-- ========== PRELOADER ========== -->
+<div id="preloader">
+  <div class="preloader-inner">
+    <div class="logo-anim">ELITE<span>11</span></div>
+    <div class="loader-bar"><div class="loader-fill"></div></div>
+  </div>
+</div>
+
+<!-- ========== NAVBAR ========== -->
+<nav id="navbar">
+  <div class="nav-container">
+    <a href="#home" class="nav-logo">ELITE<span>11</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#shop" class="nav-link">Shop</a></li>
+      <li><a href="#tickets" class="nav-link">Tickets</a></li>
+      <li><a href="#scores" class="nav-link">Live Scores</a></li>
+      <li><a href="#players" class="nav-link">Players</a></li>
+      <li><a href="#fanzone" class="nav-link">Fan Zone</a></li>
+      <li><a href="#membership" class="nav-link">Membership</a></li>
+      <li><a href="#contact" class="nav-link">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="nav-btn icon-btn" id="searchToggle" title="Search"><i class="fas fa-search"></i></button>
+      <button class="nav-btn icon-btn cart-btn" id="cartToggle" title="Cart">
+        <i class="fas fa-shopping-bag"></i>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <a href="#" class="nav-btn login-btn" id="loginBtn">Login</a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <!-- Search Bar -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-inner">
+      <input type="text" placeholder="Search bats, jerseys, tickets..." id="searchInput" />
+      <button onclick="performSearch()"><i class="fas fa-search"></i></button>
+      <button class="close-search" id="closeSearch"><i class="fas fa-times"></i></button>
+    </div>
+  </div>
+</nav>
+
+<!-- ========== HERO ========== -->
+<section id="home" class="hero">
+  <div class="hero-bg">
+    <div class="hero-overlay"></div>
+    <div class="stadium-lines"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag"><span class="dot"></span>NEW SEASON 2025</div>
+    <h1 class="hero-title">
+      <span class="line1">DOMINATE</span>
+      <span class="line2">THE PITCH</span>
+    </h1>
+    <p class="hero-sub">Premium cricket gear engineered for champions.<br>Shop the latest collection or book your stadium experience.</p>
+    <div class="hero-ctas">
+      <a href="#shop" class="btn btn-primary">Shop Collection</a>
+      <a href="#tickets" class="btn btn-outline">Book Tickets</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Products</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">50K+</span><span class="stat-label">Fans</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">25+</span><span class="stat-label">Matches</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ========== TICKER ========== -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>🏏 IND vs AUS — Live Now</span>
+    <span>⚡ 20% OFF on all bats this weekend</span>
+    <span>🎟️ T20 World Cup tickets available</span>
+    <span>🏆 New jersey drops — Limited stock</span>
+    <span>🔴 PAK vs ENG — Starting in 2 hrs</span>
+    <span>🏏 IND vs AUS — Live Now</span>
+    <span>⚡ 20% OFF on all bats this weekend</span>
+    <span>🎟️ T20 World Cup tickets available</span>
+    <span>🏆 New jersey drops — Limited stock</span>
+    <span>🔴 PAK vs ENG — Starting in 2 hrs</span>
+  </div>
+</div>
+
+<!-- ========== CATEGORIES ========== -->
+<section class="section categories-section" id="categories">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Browse by Category</span>
+      <h2 class="section-title">GEAR UP.<br><span>PLAY ELITE.</span></h2>
+    </div>
+    <div class="categories-grid">
+      <div class="cat-card" onclick="filterProducts('bats')">
+        <div class="cat-img cat-bats"></div>
+        <div class="cat-info"><h3>Cricket Bats</h3><span>48 Products</span></div>
+        <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="cat-card" onclick="filterProducts('jerseys')">
+        <div class="cat-img cat-jerseys"></div>
+        <div class="cat-info"><h3>Jerseys</h3><span>32 Products</span></div>
+        <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="cat-card" onclick="filterProducts('gloves')">
+        <div class="cat-img cat-gloves"></div>
+        <div class="cat-info"><h3>Gloves</h3><span>24 Products</span></div>
+        <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="cat-card" onclick="filterProducts('helmets')">
+        <div class="cat-img cat-helmets"></div>
+        <div class="cat-info"><h3>Helmets</h3><span>18 Products</span></div>
+        <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="cat-card" onclick="filterProducts('shoes')">
+        <div class="cat-img cat-shoes"></div>
+        <div class="cat-info"><h3>Shoes</h3><span>29 Products</span></div>
+        <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+      <div class="cat-card" onclick="filterProducts('accessories')">
+        <div class="cat-img cat-acc"></div>
+        <div class="cat-info"><h3>Accessories</h3><span>61 Products</span></div>
+        <div class="cat-arrow"><i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SHOP ========== -->
+<section class="section shop-section" id="shop">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Featured Products</span>
+      <h2 class="section-title">TRENDING<br><span>THIS SEASON</span></h2>
+    </div>
+    <div class="shop-controls">
+      <div class="filter-tabs" id="filterTabs">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="bats">Bats</button>
+        <button class="filter-tab" data-filter="jerseys">Jerseys</button>
+        <button class="filter-tab" data-filter="gloves">Gloves</button>
+        <button class="filter-tab" data-filter="helmets">Helmets</button>
+        <button class="filter-tab" data-filter="shoes">Shoes</button>
+        <button class="filter-tab" data-filter="accessories">Accessories</button>
+      </div>
+      <select class="sort-select" id="sortSelect" onchange="sortProducts()">
+        <option value="default">Sort by: Featured</option>
+        <option value="price-low">Price: Low to High</option>
+        <option value="price-high">Price: High to Low</option>
+        <option value="rating">Top Rated</option>
+      </select>
+    </div>
+    <div class="products-grid" id="productsGrid">
+      <!-- Products injected by JS -->
+    </div>
+    <div class="view-all-wrap">
+      <button class="btn btn-outline" onclick="loadMoreProducts()">Load More Products</button>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PROMO BANNER ========== -->
+<section class="promo-banner">
+  <div class="promo-content">
+    <span class="promo-tag">LIMITED TIME</span>
+    <h2>ELITE SEASON SALE</h2>
+    <p>Up to 40% off on premium cricket gear. Don't miss the season's biggest drop.</p>
+    <a href="#shop" class="btn btn-primary">Grab the Deal</a>
+  </div>
+  <div class="promo-visual">
+    <div class="promo-circle"></div>
+    <div class="promo-number">40<span>%</span></div>
+    <div class="promo-label">OFF</div>
+  </div>
+</section>
+
+<!-- ========== LIVE SCORES ========== -->
+<section class="section scores-section" id="scores">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag"><span class="live-dot"></span>Live Updates</span>
+      <h2 class="section-title">CRICKET<br><span>SCOREBOARD</span></h2>
+    </div>
+    <div class="scores-grid" id="scoresGrid">
+      <!-- Scores injected by JS -->
+    </div>
+    <div class="upcoming-matches">
+      <h3 class="sub-heading">UPCOMING MATCHES</h3>
+      <div class="upcoming-grid" id="upcomingGrid">
+        <!-- Upcoming injected by JS -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TICKET BOOKING ========== -->
+<section class="section tickets-section" id="tickets">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Book Your Seat</span>
+      <h2 class="section-title">STADIUM<br><span>EXPERIENCE</span></h2>
+    </div>
+    <div class="tickets-layout">
+      <div class="match-selector">
+        <h3>Select Match</h3>
+        <div class="match-list" id="matchList">
+          <!-- Matches injected by JS -->
+        </div>
+      </div>
+      <div class="seat-map-wrap">
+        <h3>Select Seat Category</h3>
+        <div class="stadium-visual">
+          <div class="stadium-field">
+            <div class="pitch-oval"></div>
+            <div class="pitch-strip"></div>
+          </div>
+          <div class="seat-zones">
+            <div class="seat-zone vip" data-zone="VIP" data-price="5000" onclick="selectZone(this)">
+              <span>VIP PAVILION</span><small>₹5,000</small>
+            </div>
+            <div class="seat-zone premium" data-zone="Premium" data-price="2500" onclick="selectZone(this)">
+              <span>PREMIUM STAND</span><small>₹2,500</small>
+            </div>
+            <div class="seat-zone general" data-zone="General" data-price="800" onclick="selectZone(this)">
+              <span>GENERAL STAND</span><small>₹800</small>
+            </div>
+            <div class="seat-zone east" data-zone="East" data-price="1200" onclick="selectZone(this)">
+              <span>EAST END</span><small>₹1,200</small>
+            </div>
+          </div>
+        </div>
+        <div class="ticket-form" id="ticketForm">
+          <div class="ticket-summary" id="ticketSummary">
+            <p>Select a zone to continue</p>
+          </div>
+          <div class="ticket-qty" id="ticketQty" style="display:none">
+            <label>Quantity:</label>
+            <div class="qty-ctrl">
+              <button onclick="changeTicketQty(-1)">−</button>
+              <span id="ticketQtyVal">1</span>
+              <button onclick="changeTicketQty(1)">+</button>
+            </div>
+            <div class="ticket-total" id="ticketTotal">Total: ₹5,000</div>
+          </div>
+          <button class="btn btn-primary full-btn" id="bookNowBtn" style="display:none" onclick="bookTickets()">
+            Book Now — Generate QR
+          </button>
+        </div>
+      </div>
+    </div>
+    <!-- QR Modal -->
+    <div class="modal-overlay" id="qrModal">
+      <div class="modal-box">
+        <button class="modal-close" onclick="closeModal('qrModal')"><i class="fas fa-times"></i></button>
+        <div class="modal-content">
+          <div class="qr-success"><i class="fas fa-check-circle"></i></div>
+          <h3>Booking Confirmed!</h3>
+          <div class="qr-code" id="qrCode"></div>
+          <p id="qrDetails">Your ticket details</p>
+          <button class="btn btn-primary" onclick="downloadTicket()"><i class="fas fa-download"></i> Download Ticket</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== PLAYERS ========== -->
+<section class="section players-section" id="players">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">The Legends</span>
+      <h2 class="section-title">PLAYER<br><span>SHOWCASE</span></h2>
+    </div>
+    <div class="players-grid" id="playersGrid">
+      <!-- Players injected by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAN ZONE ========== -->
+<section class="section fanzone-section" id="fanzone">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Community</span>
+      <h2 class="section-title">FAN<br><span>ZONE</span></h2>
+    </div>
+    <div class="fanzone-grid">
+      <!-- Poll -->
+      <div class="fz-card poll-card">
+        <div class="fz-icon"><i class="fas fa-poll"></i></div>
+        <h3>Match Prediction</h3>
+        <p>Who will win the final?</p>
+        <div class="poll-options" id="pollOptions">
+          <button class="poll-btn" onclick="vote(this, 'India', 68)">
+            <span>🇮🇳 India</span><div class="poll-bar" style="width:68%"></div><span>68%</span>
+          </button>
+          <button class="poll-btn" onclick="vote(this, 'Australia', 32)">
+            <span>🇦🇺 Australia</span><div class="poll-bar" style="width:32%"></div><span>32%</span>
+          </button>
+        </div>
+        <small id="pollTotal">12,483 votes</small>
+      </div>
+      <!-- Fantasy Tips -->
+      <div class="fz-card fantasy-card">
+        <div class="fz-icon"><i class="fas fa-trophy"></i></div>
+        <h3>Fantasy Tips</h3>
+        <ul class="tips-list">
+          <li><i class="fas fa-star"></i>Pick 2 all-rounders as captain</li>
+          <li><i class="fas fa-star"></i>Avoid top-order on spin tracks</li>
+          <li><i class="fas fa-star"></i>Include a specialist keeper</li>
+          <li><i class="fas fa-star"></i>Differential pick: #7 batsman</li>
+        </ul>
+        <button class="btn btn-outline btn-sm" onclick="showAlert('Fantasy guide coming soon!')">View Full Guide</button>
+      </div>
+      <!-- Discussion -->
+      <div class="fz-card discuss-card">
+        <div class="fz-icon"><i class="fas fa-comments"></i></div>
+        <h3>Fan Discussion</h3>
+        <div class="discussion-feed" id="discussionFeed">
+          <div class="msg"><img src="https://ui-avatars.com/api/?name=Rohit+S&background=39ff14&color=000&size=32" alt="avatar"><div class="msg-body"><strong>Rohit S.</strong><p>India looking sharp in practice 🔥</p></div></div>
+          <div class="msg"><img src="https://ui-avatars.com/api/?name=Priya+K&background=0066ff&color=fff&size=32" alt="avatar"><div class="msg-body"><strong>Priya K.</strong><p>Can't wait for the final match!</p></div></div>
+          <div class="msg"><img src="https://ui-avatars.com/api/?name=Arjun+M&background=ff4444&color=fff&size=32" alt="avatar"><div class="msg-body"><strong>Arjun M.</strong><p>Elite 11 jerseys are 🔥 quality</p></div></div>
+        </div>
+        <div class="discuss-input">
+          <input type="text" placeholder="Add your comment..." id="fanComment" />
+          <button onclick="postComment()"><i class="fas fa-paper-plane"></i></button>
+        </div>
+      </div>
+      <!-- Newsletter -->
+      <div class="fz-card newsletter-card">
+        <div class="fz-icon"><i class="fas fa-envelope"></i></div>
+        <h3>Fan Newsletter</h3>
+        <p>Get match alerts, exclusive deals, and VIP early access.</p>
+        <div class="nl-form">
+          <input type="email" placeholder="Your email address" id="nlEmail" />
+          <button class="btn btn-primary" onclick="subscribeNewsletter()">Subscribe</button>
+        </div>
+        <div class="nl-badges">
+          <span><i class="fas fa-check"></i> No spam</span>
+          <span><i class="fas fa-check"></i> Weekly digest</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MEMBERSHIP ========== -->
+<section class="section membership-section" id="membership">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Join the Elite</span>
+      <h2 class="section-title">MEMBERSHIP<br><span>PLANS</span></h2>
+    </div>
+    <div class="plans-grid">
+      <div class="plan-card basic">
+        <div class="plan-badge">Basic</div>
+        <div class="plan-price"><span>₹</span>299<small>/mo</small></div>
+        <ul class="plan-features">
+          <li><i class="fas fa-check"></i> 5% discount on all products</li>
+          <li><i class="fas fa-check"></i> Early access to new arrivals</li>
+          <li><i class="fas fa-check"></i> Monthly newsletter</li>
+          <li><i class="fas fa-times faded"></i> VIP ticket priority</li>
+          <li><i class="fas fa-times faded"></i> Exclusive fan events</li>
+          <li><i class="fas fa-times faded"></i> Player meet & greet</li>
+        </ul>
+        <button class="btn btn-outline full-btn" onclick="joinPlan('Basic')">Get Started</button>
+      </div>
+      <div class="plan-card pro featured-plan">
+        <div class="plan-badge">Pro <span class="popular-tag">Most Popular</span></div>
+        <div class="plan-price"><span>₹</span>799<small>/mo</small></div>
+        <ul class="plan-features">
+          <li><i class="fas fa-check"></i> 15% discount on all products</li>
+          <li><i class="fas fa-check"></i> Early access to new arrivals</li>
+          <li><i class="fas fa-check"></i> Weekly newsletter + tips</li>
+          <li><i class="fas fa-check"></i> VIP ticket priority booking</li>
+          <li><i class="fas fa-check"></i> Exclusive fan events</li>
+          <li><i class="fas fa-times faded"></i> Player meet & greet</li>
+        </ul>
+        <button class="btn btn-primary full-btn" onclick="joinPlan('Pro')">Join Pro</button>
+      </div>
+      <div class="plan-card elite">
+        <div class="plan-badge">Elite</div>
+        <div class="plan-price"><span>₹</span>1,999<small>/mo</small></div>
+        <ul class="plan-features">
+          <li><i class="fas fa-check"></i> 30% discount on all products</li>
+          <li><i class="fas fa-check"></i> First access — guaranteed</li>
+          <li><i class="fas fa-check"></i> Daily insider updates</li>
+          <li><i class="fas fa-check"></i> VIP lounge + ticket priority</li>
+          <li><i class="fas fa-check"></i> All exclusive fan events</li>
+          <li><i class="fas fa-check"></i> Player meet & greet passes</li>
+        </ul>
+        <button class="btn btn-outline full-btn" onclick="joinPlan('Elite')">Go Elite</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="section about-section" id="about">
+  <div class="container about-layout">
+    <div class="about-text">
+      <span class="section-tag">Our Story</span>
+      <h2 class="section-title">BORN FROM<br><span>THE GAME</span></h2>
+      <p>ELITE 11 was founded by cricket fanatics who believed the sport deserved a world-class digital home. We combine premium gear curation, real-time match data, and a passionate fan community into one platform.</p>
+      <p>From grassroots cricket to international arenas — ELITE 11 serves every level of the game.</p>
+      <div class="about-stats">
+        <div class="a-stat"><strong>2019</strong><span>Founded</span></div>
+        <div class="a-stat"><strong>12+</strong><span>Brand Partners</span></div>
+        <div class="a-stat"><strong>50K+</strong><span>Customers</span></div>
+        <div class="a-stat"><strong>15+</strong><span>Cities</span></div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="about-img-wrap">
+        <div class="about-img-bg"></div>
+        <div class="about-badge-1"><i class="fas fa-award"></i> #1 Cricket Platform</div>
+        <div class="about-badge-2"><i class="fas fa-shield-alt"></i> Authentic Gear</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONTACT ========== -->
+<section class="section contact-section" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-tag">Get in Touch</span>
+      <h2 class="section-title">CONTACT<br><span>US</span></h2>
+    </div>
+    <div class="contact-layout">
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <div><strong>Address</strong><p>42 Stadium Road, Cricket Colony,<br>Mumbai, Maharashtra 400001</p></div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <div><strong>Phone</strong><p>+91 98765 43210</p></div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div><strong>Email</strong><p>support@elite11.com</p></div>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <div><strong>Hours</strong><p>Mon–Sat: 9am – 7pm IST</p></div>
+        </div>
+        <div class="social-links">
+          <a href="#" onclick="showAlert('Instagram')" class="soc-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" onclick="showAlert('Twitter/X')" class="soc-btn"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" onclick="showAlert('YouTube')" class="soc-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" onclick="showAlert('Facebook')" class="soc-btn"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <form class="contact-form" id="contactForm" onsubmit="submitContact(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Virat" required />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Kohli" required />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="you@email.com" required />
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select required>
+            <option value="">Select a topic...</option>
+            <option>Order Inquiry</option>
+            <option>Ticket Booking</option>
+            <option>Membership</option>
+            <option>Partnership</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea rows="4" placeholder="Tell us how we can help..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary full-btn">Send Message <i class="fas fa-paper-plane"></i></button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-logo">ELITE<span>11</span></div>
+        <p>The ultimate cricket platform — gear, tickets, scores, and community in one place.</p>
+        <div class="social-links">
+          <a href="#" class="soc-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="soc-btn"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#shop" onclick="filterProducts('bats')">Cricket Bats</a></li>
+          <li><a href="#shop" onclick="filterProducts('jerseys')">Jerseys</a></li>
+          <li><a href="#shop" onclick="filterProducts('gloves')">Gloves</a></li>
+          <li><a href="#shop" onclick="filterProducts('helmets')">Helmets</a></li>
+          <li><a href="#shop" onclick="filterProducts('shoes')">Shoes</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Platform</h4>
+        <ul>
+          <li><a href="#scores">Live Scores</a></li>
+          <li><a href="#tickets">Buy Tickets</a></li>
+          <li><a href="#players">Players</a></li>
+          <li><a href="#fanzone">Fan Zone</a></li>
+          <li><a href="#membership">Membership</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#" onclick="showAlert('Careers page coming soon!')">Careers</a></li>
+          <li><a href="#" onclick="showAlert('Privacy Policy')">Privacy Policy</a></li>
+          <li><a href="#" onclick="showAlert('Terms of Service')">Terms</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 ELITE 11. All rights reserved. Crafted with passion for cricket.</p>
+      <div class="payment-icons">
+        <i class="fab fa-cc-visa"></i>
+        <i class="fab fa-cc-mastercard"></i>
+        <i class="fab fa-cc-paypal"></i>
+        <i class="fab fa-google-pay"></i>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== CART SIDEBAR ========== -->
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>Your Cart <span id="cartHeaderCount">(0)</span></h3>
+    <button onclick="toggleCart()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="cart-items" id="cartItems">
+    <div class="cart-empty"><i class="fas fa-shopping-bag"></i><p>Your cart is empty</p></div>
+  </div>
+  <div class="cart-footer" id="cartFooter" style="display:none">
+    <div class="cart-subtotal">Subtotal: <strong id="cartSubtotal">₹0</strong></div>
+    <button class="btn btn-primary full-btn" onclick="proceedCheckout()">Proceed to Checkout</button>
+    <button class="btn btn-outline full-btn" onclick="toggleCart()">Continue Shopping</button>
+  </div>
+</div>
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+
+<!-- ========== LOGIN MODAL ========== -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('loginModal')"><i class="fas fa-times"></i></button>
+    <div class="modal-content">
+      <div class="modal-logo">ELITE<span>11</span></div>
+      <div class="auth-tabs">
+        <button class="auth-tab active" id="loginTabBtn" onclick="switchAuthTab('login')">Login</button>
+        <button class="auth-tab" id="registerTabBtn" onclick="switchAuthTab('register')">Register</button>
+      </div>
+      <div id="loginForm">
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="you@email.com" id="loginEmail" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" placeholder="••••••••" id="loginPassword" />
+        </div>
+        <button class="btn btn-primary full-btn" onclick="handleLogin()">Login</button>
+        <div class="auth-divider"><span>or</span></div>
+        <button class="btn btn-google full-btn" onclick="googleLogin()"><i class="fab fa-google"></i> Continue with Google</button>
+      </div>
+      <div id="registerForm" style="display:none">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Virat" id="regFirst" />
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Kohli" id="regLast" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="you@email.com" id="regEmail" />
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <input type="password" placeholder="Create password" id="regPassword" />
+        </div>
+        <button class="btn btn-primary full-btn" onclick="handleRegister()">Create Account</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========== TOAST ========== -->
+<div class="toast" id="toast"></div>
+
+<!-- ========== SCROLL TO TOP ========== -->
+<button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script src="app.js"></script>
+</body>
+</html>
+
